@@ -37,8 +37,22 @@ export class UserService extends DefaultElasticService {
   }
 
   auth(user: User) {
+    //this.executarLogin();
     this.getUser(user).subscribe((result: any) => {
       const userDB: User = result.hits.hits[0];
+      if (result.hits.hits.length == 0) {
+        this.getAll().subscribe((iresult: any) => {
+          if (iresult.hits.hits.length == 0) {
+            let admin: User = new User();
+            admin._source.login = 'admin';
+            admin._source.name = "Administrador";
+            admin._source.password = this.md5.start().appendStr('admin').end() + '';
+            this.save(admin).subscribe(result => console.log(result));
+            console.log('Nenhum usuário identificado. Criando usuário administrador do sistema');    
+          }
+        })
+      }
+
       if (userDB._source.login === user._source.login &&
         userDB._source.password === this.md5.start().appendStr(user._source.password).end()) {
           this.executarLogin();

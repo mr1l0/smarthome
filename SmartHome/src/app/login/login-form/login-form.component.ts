@@ -20,7 +20,7 @@ export class LoginFormComponent implements OnInit {
   }
 
 
-  submit() {this.userService.auth(this.user);
+  submit() {
     this.userService.auth(this.user);
   }
 }
