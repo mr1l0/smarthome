@@ -26,6 +26,7 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { ListUserComponent } from './user/list-user/list-user.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { UserGuard } from './guards/user-guard';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { UserGuard } from './guards/user-guard';
     MatListModule,
     MatIconModule,
     MatToolbarModule,
-    HttpClientModule
+    HttpClientModule,
+    Ng2SearchPipeModule
   ],
   entryComponents: [
     EditRoomComponent,

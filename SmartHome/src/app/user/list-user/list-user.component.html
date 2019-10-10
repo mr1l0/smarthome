@@ -1,7 +1,16 @@
 <div class="form-margin-default">
   <h3>Usuários</h3>
-  <button mat-stroked-button (click)="add()"><mat-icon>add</mat-icon></button>
-  <div *ngFor="let user of data" class="cards">
+
+  <mat-form-field class="example-form-field menu-icon-margin">
+    <input matInput type="text" [(ngModel)]="filter" placeholder="Localizar...">
+    <button mat-button *ngIf="filter" matSuffix mat-icon-button aria-label="Clear" (click)="filter=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button mat-stroked-button class="menu-icon-margin" (click)="add()"><mat-icon>add</mat-icon></button>
+
+  <div *ngFor="let user of data | filter: filter" class="cards">
     <mat-card class="card">
         <mat-card-title class="align-center">
             <mat-icon>person_pin</mat-icon>

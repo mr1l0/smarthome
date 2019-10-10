@@ -1,4 +1,56 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.menu-icon-margin{
+  margin-right: 10px !important;
+}
+
+.align-right-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.default-submit-button{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 12.5rem;
+  padding: 1.5rem 3.125rem;
+  background-color: #3498db;
+  border: none;
+  border-radius: 0.3125rem;
+  box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2);
+  color: white;
+  font-weight: 300;
+  text-transform: uppercase;
+  overflow: hidden;
+  height: 30px;
+}
+
+.cards[_ngcontent-cyl-c1] {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-column-gap: 2em;
+  grid-row-gap: .5em;
+  font-size: 1.5em;
+}
+
+.card {
+  max-width: 400px;
+  margin: 3px;
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}

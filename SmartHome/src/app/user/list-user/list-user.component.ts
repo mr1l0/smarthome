@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/dataModel/user';
 import { MatDialog } from '@angular/material';
 import { DefaultController } from 'src/app/elastic/default-controller';
+import { Room } from 'src/app/dataModel/room';
 
 @Component({
   selector: 'app-list-user',
@@ -17,6 +18,7 @@ export class ListUserComponent extends DefaultController implements OnInit {
    }
 
   users: User[];
+  filter: string;
 
   ngOnInit() {
     this.getAll();
@@ -24,7 +26,7 @@ export class ListUserComponent extends DefaultController implements OnInit {
 
   add(user: User) {
     const dialogRef = this.dialog.open(EditUserComponent, {
-      width: '300px',
+      width: '250px',
       data: null
     });
 
