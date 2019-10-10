@@ -1,0 +1,19 @@
+<h3 [hidden]="user._id">Incluir Usuário</h3>
+<h3 *ngIf="data">Editar o usuário {{data._source.name}}</h3>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput autofocus [(ngModel)]="user._source.name" name="name" placeholder="Nome">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput autofocus [(ngModel)]="user._source.phone" name="phone" placeholder="Telefone">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput autofocus [(ngModel)]="user._source.login" name="login" placeholder="Login">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput autofocus type="password" [(ngModel)]="user.password" name="password" placeholder="Senha">
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="submit()">Confirmar</button>
+  <button mat-stroked-button (click)="cancel()">Cancelar</button>
+</form>

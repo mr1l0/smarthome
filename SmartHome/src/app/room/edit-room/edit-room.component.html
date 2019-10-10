@@ -1,0 +1,10 @@
+<h3 [hidden]="room._id">Incluir comodo</h3>
+<h3 *ngIf="data">Editar o comodo {{data._source.name}}</h3>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput autofocus [(ngModel)]="room._source.name" name="name" placeholder="Nome do Comodo">
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="submit()">Confirmar</button>
+  <button mat-stroked-button (click)="cancel()">Cancelar</button>
+</form>

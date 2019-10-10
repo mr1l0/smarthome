@@ -1,0 +1,53 @@
+
+.form-margin-default {
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.menu-icon-margin{
+  margin-right: 10px;
+}
+
+mat-card mat-card-title {
+  display: flex;
+  align-items: center;
+}
+
+.big-card[_ngcontent-cyl-c1], .card[_ngcontent-cyl-c1] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cream);
+  border: var(--default-border);
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+  cursor: pointer;
+}
+
+.example-container {
+  position: absolute;
+  top: 60px;
+  bottom: 60px;
+  left: 0;
+  right: 0;
+}
+
+.example-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+}
+
+.example-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}

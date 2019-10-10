@@ -1,0 +1,21 @@
+<div class="form-margin-default">
+  <h3>Minha casa</h3>
+  <button mat-stroked-button (click)="add()"><mat-icon>add</mat-icon></button>
+  <div *ngFor="let room of data" class="cards">
+    <mat-card class="card align-right-container">
+      <mat-card-title>
+        <mat-icon>meeting_room</mat-icon>
+        {{room._source.name}}
+        </mat-card-title>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+    </mat-card>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="open(room)"><mat-icon>open_in_new</mat-icon> Abrir</button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item (click)="edit(room)"><mat-icon>edit</mat-icon>Editar</button>
+      <button mat-menu-item (click)="remove(room)"><mat-icon>delete</mat-icon>Excluir</button>
+    </mat-menu>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="centralize">
+  <form class="example-form">
+    <h3>Login</h3>
+    <mat-form-field class="example-full-width">
+      <input matInput autofocus [(ngModel)]="user._source.login" name="login" placeholder="Login">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput type="password" autofocus [(ngModel)]="user._source.password" name="password" placeholder="Senha">
+    </mat-form-field>
+
+    <button mat-raised-button class="example-full-width default-submit-button" (click)="submit()">Login</button>
+  </form>
+</div>

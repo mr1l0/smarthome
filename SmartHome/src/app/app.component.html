@@ -1,0 +1,21 @@
+<mat-toolbar class="example-header"><mat-icon aria-label="Home" class="menu-icon-margin">home</mat-icon>Smart Home <button mat-button (click)="logout()"><mat-icon>highlight_off</mat-icon></button> </mat-toolbar>
+
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #sidenav *ngIf="showMenu" mode="side" opened class="example-sidenav"
+                [fixedInViewport]="false" [fixedTopGap]="0"
+                [fixedBottomGap]="0">
+    <mat-nav-list>
+      <a mat-list-item routerLink="home">
+        <mat-icon aria-label="Home" class="menu-icon-margin">home</mat-icon>Início</a>
+      <a mat-list-item routerLink="rooms">
+        <mat-icon aria-label="Home" class="menu-icon-margin">meeting_room</mat-icon>Comodos</a>
+        <a mat-list-item routerLink="config">
+        <mat-icon aria-label="Home" class="menu-icon-margin">settings_applications</mat-icon>Configurações</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <div class="form-margin-default">
+    <router-outlet></router-outlet>
+  </div>
+</mat-sidenav-container>
+
+<mat-toolbar class="example-footer"></mat-toolbar>
