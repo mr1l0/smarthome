@@ -36,21 +36,27 @@ export class UserService extends DefaultElasticService {
     return this.http.post(this.getUrl() + '/_search', '{"from" : 0, "size" : 10000, "query": {"match": {"login": "' + user._source.login + '"}}}', this.httpOptions);
   }
 
+  private createAdminUserIfNeed() {
+      this.getAll().subscribe((iresult: any) => {
+        if (iresult.hits.hits.length == 0) {
+          let admin: User = new User();
+          admin._source.login = 'admin';
+          admin._source.name = "Administrador";
+          admin._source.password = this.md5.start().appendStr('admin').end() + '';
+          this.save(admin).subscribe(result => console.log(result));
+          console.log('Nenhum usuário identificado. Criando usuário administrador do sistema');    
+        }
+      })
+  }  
+  
+
   auth(user: User) {
     //this.executarLogin();
     this.getUser(user).subscribe((result: any) => {
       const userDB: User = result.hits.hits[0];
+
       if (result.hits.hits.length == 0) {
-        this.getAll().subscribe((iresult: any) => {
-          if (iresult.hits.hits.length == 0) {
-            let admin: User = new User();
-            admin._source.login = 'admin';
-            admin._source.name = "Administrador";
-            admin._source.password = this.md5.start().appendStr('admin').end() + '';
-            this.save(admin).subscribe(result => console.log(result));
-            console.log('Nenhum usuário identificado. Criando usuário administrador do sistema');    
-          }
-        })
+        this.createAdminUserIfNeed();
       }
 
       if (userDB._source.login === user._source.login &&
