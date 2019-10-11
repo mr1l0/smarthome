@@ -28,6 +28,8 @@ import { LoginFormComponent } from './login/login-form/login-form.component';
 import { UserGuard } from './guards/user-guard';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminGuard } from './guards/admin-guard';
+import { EditArduinoComponent } from './arduino/edit-arduino/edit-arduino.component';
+import { ListArduinoComponent } from './arduino/list-arduino/list-arduino.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { AdminGuard } from './guards/admin-guard';
     EditUserComponent,
     ListUserComponent,
     LoginFormComponent,
+    EditArduinoComponent,
+    ListArduinoComponent,
   ],
   imports: [
     BrowserModule,
