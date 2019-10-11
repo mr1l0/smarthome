@@ -1,7 +1,6 @@
-import { IdefaultService } from './../interfaces/idefault-service';
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
-import { DefaultBean } from '../elastic/default-bean';
+import { DefaultModel } from '../dataModel/default-model';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,23 +26,23 @@ export class DefaultElasticService {
     return this.http.post(this.getUrl() + '/_search', '{"from" : 0, "size" : 10000, "query": {"match_all": {}}}', httpOptions);
   }
 
-  remove(bean: DefaultBean) {
+  remove(bean: DefaultModel) {
     return this.http.delete(this.getUrl() + '/' + bean._id + '?refresh=true', httpOptions);
   }
 
-  private update(bean: DefaultBean){
+  private update(bean: DefaultModel){
     return this.http.post(this.getUrl() + '/' + bean._id + '?refresh=true', bean._source, httpOptions);
   }
 
-  private insert(bean: DefaultBean) {
+  private insert(bean: DefaultModel) {
     return this.http.post(this.getUrl() + '?refresh=true', bean._source, httpOptions);
   }
 
-  beforeSave(bean: DefaultBean) {
+  beforeSave(bean: DefaultModel) {
     console.log('aqui é o before save super');
   }
 
-  save(bean: DefaultBean) {
+  save(bean: DefaultModel) {
     this.beforeSave(bean);
     if (bean._id) {
       return this.update(bean);

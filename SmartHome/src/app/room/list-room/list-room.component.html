@@ -1,7 +1,16 @@
 <div class="form-margin-default">
   <h3>Minha casa</h3>
-  <button mat-stroked-button (click)="add()"><mat-icon>add</mat-icon></button>
-  <div *ngFor="let room of data" class="cards">
+
+  <mat-form-field class="example-form-field menu-icon-margin">
+    <input matInput type="text" [(ngModel)]="filter" placeholder="Localizar...">
+    <button mat-button *ngIf="filter" matSuffix mat-icon-button aria-label="Clear" (click)="filter=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button mat-stroked-button *ngIf="userService.isAdmin()" (click)="add()"><mat-icon>add</mat-icon></button>
+
+  <div *ngFor="let room of data | filter: filter" class="cards">
     <mat-card class="card align-right-container">
       <mat-card-title>
         <mat-icon>meeting_room</mat-icon>
@@ -13,9 +22,9 @@
     </mat-card>
     <mat-menu #menu="matMenu">
       <button mat-menu-item (click)="open(room)"><mat-icon>open_in_new</mat-icon> Abrir</button>
-      <mat-divider></mat-divider>
-      <button mat-menu-item (click)="edit(room)"><mat-icon>edit</mat-icon>Editar</button>
-      <button mat-menu-item (click)="remove(room)"><mat-icon>delete</mat-icon>Excluir</button>
+      <mat-divider *ngIf="userService.isAdmin()"></mat-divider>
+      <button mat-menu-item *ngIf="userService.isAdmin()" (click)="edit(room)"><mat-icon>edit</mat-icon>Editar</button>
+      <button mat-menu-item *ngIf="userService.isAdmin()" (click)="remove(room)"><mat-icon>delete</mat-icon>Excluir</button>
     </mat-menu>
   </div>
 </div>

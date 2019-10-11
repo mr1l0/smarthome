@@ -1,4 +1,4 @@
-export class DefaultBean {
+export class DefaultModel {
   _id: string;
   _index: string;
   _score: number;

@@ -27,6 +27,7 @@ import { ListUserComponent } from './user/list-user/list-user.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { UserGuard } from './guards/user-guard';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { AdminGuard } from './guards/admin-guard';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     EditRoomComponent,
     EditUserComponent
   ],
-  providers: [UserService, UserGuard, { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
+  providers: [UserService, UserGuard, AdminGuard, { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
               { provide: MatDialogRef, useValue: {} }],
   bootstrap: [AppComponent]
 })

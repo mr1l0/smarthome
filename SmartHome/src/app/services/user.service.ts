@@ -1,4 +1,4 @@
-import { DefaultBean } from './../elastic/default-bean';
+import { DefaultModel } from '../dataModel/default-model';
 import { Router } from '@angular/router';
 import { DefaultElasticService } from './default.service';
 import { Injectable, Output, EventEmitter } from '@angular/core';
@@ -15,7 +15,8 @@ export class UserService extends DefaultElasticService {
     super(http);
   }
 
-  private usuarioLogado: boolean = false;
+  private IsloggedIn: boolean = false;
+  private user: User;
 
   public showMenuEmitter = new EventEmitter<boolean>();
 
@@ -36,30 +37,35 @@ export class UserService extends DefaultElasticService {
     return this.http.post(this.getUrl() + '/_search', '{"from" : 0, "size" : 10000, "query": {"match": {"login": "' + user._source.login + '"}}}', this.httpOptions);
   }
 
-  private createAdminUserIfNeed() {
-      this.getAll().subscribe((iresult: any) => {
-        if (iresult.hits.hits.length == 0) {
-          let admin: User = new User();
-          admin._source.login = 'admin';
-          admin._source.name = "Administrador";
-          admin._source.password = this.md5.start().appendStr('admin').end() + '';
-          this.save(admin).subscribe(result => console.log(result));
-          console.log('Nenhum usuário identificado. Criando usuário administrador do sistema');
-        }
-      })
+  getAdminUsers() {
+    return this.http.post(this.getUrl() + '/_search', '{"from" : 0, "size" : 10000, "query": {"match": {"admin": "true"}}}', this.httpOptions);
   }
 
 
+  private createAdminUserIfNeed() {
+    this.getAdminUsers().subscribe((iresult: any) => {
+      if (iresult.hits.hits.length == 0) {
+        let admin: User = new User();
+        admin._source.login = 'admin';
+        admin._source.name = "Administrador";
+        admin._source.password = this.md5.start().appendStr('admin').end() + '';
+        admin._source.admin = true;
+        this.save(admin).subscribe(result => console.log(result));
+        console.log('Nenhum usuário identificado. Criando usuário administrador do sistema');
+      }
+    })
+  }
+
   auth(user: User) {
     this.getUser(user).subscribe((result: any) => {
-      const userDB: User = result.hits.hits[0];
+      this.user = result.hits.hits[0];
 
       if (result.hits.hits.length == 0) {
         this.createAdminUserIfNeed();
       }
 
-      if (userDB._source.login === user._source.login &&
-        userDB._source.password === this.md5.start().appendStr(user._source.password).end()) {
+      if (this.user._source.login === user._source.login &&
+        this.user._source.password === this.md5.start().appendStr(user._source.password).end()) {
           this.executarLogin();
       }
     });
@@ -67,17 +73,21 @@ export class UserService extends DefaultElasticService {
 
   executarLogin() {
     this.showMenuEmitter.emit(true);
-    this.usuarioLogado = true;
+    this.IsloggedIn = true;
     this.router.navigate(['/']);
   }
 
   logout() {
-    this.usuarioLogado = false;
+    this.IsloggedIn = false;
     this.showMenuEmitter.emit(false);
     this.router.navigate(['/login']);
   }
 
   loggedIn(): boolean{
-    return this.usuarioLogado;
+    return this.IsloggedIn;
+  }
+
+  isAdmin(): boolean {
+    return this.user._source.admin;
   }
 }

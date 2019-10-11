@@ -13,7 +13,10 @@
   <mat-form-field class="example-full-width">
     <input matInput autofocus type="password" [(ngModel)]="user.password" name="password" placeholder="Senha">
   </mat-form-field>
-
+  <section class="example-full-width">
+    <mat-checkbox class="example-margin" [(ngModel)]="user._source.admin" name="admin">Administrador?</mat-checkbox>
+  </section>
+  
   <button mat-flat-button color="primary" (click)="submit()">Confirmar</button>
   <button mat-stroked-button (click)="cancel()">Cancelar</button>
 </form>

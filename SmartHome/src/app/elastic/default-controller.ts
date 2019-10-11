@@ -1,5 +1,5 @@
-import { DefaultBean } from './default-bean';
-import { DefaultElasticService } from './../services/default.service';
+import { DefaultModel } from '../dataModel/default-model';
+import { DefaultElasticService } from '../services/default.service';
 import { MatDialog } from '@angular/material/dialog';
 
 export class DefaultController {
@@ -9,7 +9,7 @@ export class DefaultController {
 
   }
 
-  data: DefaultBean[];
+  data: DefaultModel[];
 
   getAll() {
     this.defaultElasticService.getAll().subscribe(
@@ -20,7 +20,7 @@ export class DefaultController {
     );
   }
 
-  remove(defaultBean: DefaultBean) {
+  remove(defaultBean: DefaultModel) {
     if (defaultBean) {
       this.defaultElasticService.remove(defaultBean).subscribe(
         (sresult: any) => {

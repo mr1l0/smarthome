@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Room } from 'src/app/dataModel/room';
 import { EditRoomComponent } from '../edit-room/edit-room.component';
 import { DefaultController } from 'src/app/elastic/default-controller';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-list-room',
@@ -12,7 +13,7 @@ import { DefaultController } from 'src/app/elastic/default-controller';
 })
 export class ListRoomComponent extends DefaultController implements OnInit {
 
-  constructor(protected roomService: RoomService, public dialog: MatDialog) {
+  constructor(protected roomService: RoomService, public dialog: MatDialog, private userService: UserService) {
     super(roomService, dialog) ;
   }
 

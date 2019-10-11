@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { DefaultBean } from '../elastic/default-bean';
+import { DefaultModel } from './default-model';
 
 @Injectable()
-export class Room extends DefaultBean {
+export class Room extends DefaultModel {
 
   _source: {
     name?: string,

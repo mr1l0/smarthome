@@ -9,7 +9,7 @@
         <mat-icon aria-label="Home" class="menu-icon-margin">home</mat-icon>Início</a>
       <a mat-list-item routerLink="rooms">
         <mat-icon aria-label="Home" class="menu-icon-margin">meeting_room</mat-icon>Comodos</a>
-        <a mat-list-item routerLink="config">
+        <a mat-list-item *ngIf="userService.isAdmin()" routerLink="config">
         <mat-icon aria-label="Home" class="menu-icon-margin">settings_applications</mat-icon>Configurações</a>
     </mat-nav-list>
   </mat-sidenav>
