@@ -1,3 +1,13 @@
-<p>
-  edit-arduino works!
-</p>
+<h3 [hidden]="arduino._id">Incluir Arduino</h3>
+<h3 *ngIf="data">Editar o Arduino {{data._source.name}}</h3>
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput autofocus [(ngModel)]="arduino._source.name" name="name" placeholder="Nome">
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput autofocus [(ngModel)]="arduino._source.ip" name="ip" placeholder="IP">
+  </mat-form-field>
+
+  <button mat-flat-button color="primary" (click)="submit()">Confirmar</button>
+  <button mat-stroked-button (click)="cancel()">Cancelar</button>
+</form>

@@ -27,7 +27,7 @@ export class ListRoomComponent extends DefaultController implements OnInit {
 
   add(): void {
     const dialogRef = this.dialog.open(EditRoomComponent, {
-      width: '250px',
+      width: '450px',
       data: null
     });
 
@@ -45,7 +45,7 @@ export class ListRoomComponent extends DefaultController implements OnInit {
   edit(room: Room) {
     console.log(room);
     const dialogRef = this.dialog.open(EditRoomComponent, {
-      width: '250px',
+      width: '450px',
       data: room
     });
 

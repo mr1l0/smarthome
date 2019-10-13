@@ -5,6 +5,8 @@
     <input matInput autofocus [(ngModel)]="room._source.name" name="name" placeholder="Nome do Comodo">
   </mat-form-field>
 
+  <app-list-device [devices]="room._source.devices"></app-list-device>
+
   <button mat-flat-button color="primary" (click)="submit()">Confirmar</button>
   <button mat-stroked-button (click)="cancel()">Cancelar</button>
 </form>

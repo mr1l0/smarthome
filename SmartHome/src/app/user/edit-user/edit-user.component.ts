@@ -12,7 +12,7 @@ import { DefaultEditForm } from 'src/app/elastic/default-edit-form';
 export class EditUserComponent extends DefaultEditForm implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<EditUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: User, private roomService: UserService) {
+              @Inject(MAT_DIALOG_DATA) public data: User) {
       super();
   }
 

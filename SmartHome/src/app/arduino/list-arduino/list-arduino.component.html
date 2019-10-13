@@ -1,3 +1,33 @@
-<p>
-  list-arduino works!
-</p>
+<div class="form-margin-default">
+  <h3>Arduinos</h3>
+
+  <mat-form-field class="example-form-field menu-icon-margin">
+    <input matInput type="text" [(ngModel)]="filter" placeholder="Localizar...">
+    <button mat-button *ngIf="filter" matSuffix mat-icon-button aria-label="Clear" (click)="filter=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <button mat-stroked-button class="menu-icon-margin" (click)="add()"><mat-icon>add</mat-icon></button>
+
+  <div *ngFor="let arduino of data | filter: filter" class="cards">
+    <mat-card class="card">
+        <mat-card-title class="align-center">
+            <mat-icon>device_hub</mat-icon>
+            {{arduino._source.name}}
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>more_vert</mat-icon>
+          </button>
+        </mat-card-title>
+          <mat-card-content>
+            {{arduino._source.ip}}
+          </mat-card-content>
+      <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="edit(arduino)"><mat-icon>edit</mat-icon>Editar</button>
+          <button mat-menu-item (click)="remove(arduino)"><mat-icon>delete</mat-icon>Excluir</button>
+      </mat-menu>
+    </mat-card>
+  </div>
+
+</div>
+

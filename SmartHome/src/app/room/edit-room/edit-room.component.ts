@@ -11,10 +11,13 @@ import { DefaultEditForm } from 'src/app/elastic/default-edit-form';
 })
 export class EditRoomComponent extends DefaultEditForm implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<EditRoomComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Room, private roomService: RoomService) {
-      super();
-     }
+  constructor(
+    public dialogRef: MatDialogRef<EditRoomComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Room,
+    private roomService: RoomService
+  ) {
+    super();
+  }
 
   room: Room;
 

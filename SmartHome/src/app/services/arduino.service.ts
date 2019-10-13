@@ -7,11 +7,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ArduinoService extends DefaultElasticService {
 
-  constructor(protected http: HttpClient) { 
+  constructor(protected http: HttpClient) {
     super(http);
   }
 
   getUrl(): string {
-    return super.getUrl() + 'common/arduinos'
+    return super.getUrl() + 'hardware/arduinos';
   }
 }

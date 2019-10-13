@@ -17,7 +17,6 @@ export class ListUserComponent extends DefaultController implements OnInit {
     super(userService, dialog);
    }
 
-  users: User[];
   filter: string;
 
   ngOnInit() {

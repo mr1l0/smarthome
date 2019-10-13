@@ -30,6 +30,10 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { AdminGuard } from './guards/admin-guard';
 import { EditArduinoComponent } from './arduino/edit-arduino/edit-arduino.component';
 import { ListArduinoComponent } from './arduino/list-arduino/list-arduino.component';
+import { ListDeviceComponent } from './room/device/list-device/list-device.component';
+import { EditDeviceComponent } from './room/device/edit-device/edit-device.component';
+import { ListComponentComponent } from './room/devvice/component/list-component/list-component.component';
+import { EditComponentComponent } from './room/devvice/component/edit-component/edit-component.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +48,10 @@ import { ListArduinoComponent } from './arduino/list-arduino/list-arduino.compon
     LoginFormComponent,
     EditArduinoComponent,
     ListArduinoComponent,
+    ListDeviceComponent,
+    EditDeviceComponent,
+    ListComponentComponent,
+    EditComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -63,12 +71,14 @@ import { ListArduinoComponent } from './arduino/list-arduino/list-arduino.compon
     MatListModule,
     MatIconModule,
     MatToolbarModule,
-    HttpClientModule,
+    HttpClientModule, 
     Ng2SearchPipeModule
   ],
   entryComponents: [
     EditRoomComponent,
-    EditUserComponent
+    EditUserComponent,
+    EditArduinoComponent,
+    EditDeviceComponent
   ],
   providers: [UserService, UserGuard, AdminGuard, { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
               { provide: MatDialogRef, useValue: {} }],
