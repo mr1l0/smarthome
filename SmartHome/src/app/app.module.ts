@@ -6,11 +6,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 import { MatInputModule, MatFormFieldModule, MatMenuModule, MatIconModule,
-    MatToolbarModule, MatSidenavModule, MatListModule } from '@angular/material';
+    MatToolbarModule, MatSidenavModule, MatListModule, MatAutocompleteModule } from '@angular/material';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -71,14 +71,17 @@ import { EditComponentComponent } from './room/devvice/component/edit-component/
     MatListModule,
     MatIconModule,
     MatToolbarModule,
-    HttpClientModule, 
-    Ng2SearchPipeModule
+    HttpClientModule,
+    Ng2SearchPipeModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   entryComponents: [
     EditRoomComponent,
     EditUserComponent,
     EditArduinoComponent,
-    EditDeviceComponent
+    EditDeviceComponent,
+    EditComponentComponent
   ],
   providers: [UserService, UserGuard, AdminGuard, { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: false}},
               { provide: MatDialogRef, useValue: {} }],

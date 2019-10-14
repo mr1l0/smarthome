@@ -21,7 +21,6 @@
         </button>
     </mat-card>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="open(device)"><mat-icon>open_in_new</mat-icon> Abrir</button>
       <mat-divider *ngIf="userService.isAdmin()"></mat-divider>
       <button mat-menu-item *ngIf="userService.isAdmin()" (click)="edit(device)"><mat-icon>edit</mat-icon>Editar</button>
       <button mat-menu-item *ngIf="userService.isAdmin()" (click)="remove(device)"><mat-icon>delete</mat-icon>Excluir</button>

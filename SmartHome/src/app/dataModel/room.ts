@@ -15,6 +15,7 @@ export class Room extends DefaultModel {
 constructor() {
   super();
   this._source = {};
+  this._source.devices = [];
 }
 
 }

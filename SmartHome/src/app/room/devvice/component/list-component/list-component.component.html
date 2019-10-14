@@ -1,3 +1,29 @@
-<p>
-  list-component works!
-</p>
+<div class="form-margin-default">
+    <h3>Componentes do Dispositivo</h3>
+
+    <mat-form-field class="example-form-field menu-icon-margin">
+      <input matInput type="text" [(ngModel)]="filter" placeholder="Localizar...">
+      <button mat-button *ngIf="filter" matSuffix mat-icon-button aria-label="Clear" (click)="filter=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <button mat-stroked-button *ngIf="userService.isAdmin()" (click)="add()"><mat-icon>add</mat-icon></button>
+
+    <div *ngFor="let component of components | filter: filter" class="cards">
+      <mat-card class="card align-right-container">
+        <mat-card-title>
+          <mat-icon>meeting_room</mat-icon>
+          {{component._source.name}}
+          </mat-card-title>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+      </mat-card>
+      <mat-menu #menu="matMenu">
+        <mat-divider *ngIf="userService.isAdmin()"></mat-divider>
+        <button mat-menu-item *ngIf="userService.isAdmin()" (click)="edit(component)"><mat-icon>edit</mat-icon>Editar</button>
+        <button mat-menu-item *ngIf="userService.isAdmin()" (click)="remove(component)"><mat-icon>delete</mat-icon>Excluir</button>
+      </mat-menu>
+    </div>
+  </div>

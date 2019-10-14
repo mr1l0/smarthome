@@ -3,10 +3,15 @@ import { Arduino } from './arduino';
 export class DeviceComponent extends DefaultModel {
 
   _source: {
-    name: string,
-    arduino: Arduino,
-    port: BigInteger,
-    out: string,
-    in: string
+    name?: string,
+    arduino?: Arduino,
+    port?: BigInteger,
+    out?: string,
+    in?: string
+  }
+
+  constructor() {
+    super();
+    this._source = {};
   }
 }

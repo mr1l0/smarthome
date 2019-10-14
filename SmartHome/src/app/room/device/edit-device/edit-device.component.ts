@@ -25,7 +25,6 @@ export class EditDeviceComponent extends DefaultEditForm implements OnInit {
     } else {
       this.device = new Device();
     }
-
   }
 
   cancel() {

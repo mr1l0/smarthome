@@ -19,6 +19,9 @@ export class ListDeviceComponent implements OnInit {
   @Input() devices: Device[];
 
   ngOnInit() {
+    if(!this.devices){
+      this.devices = [];
+    }
   }
 
   add(): void {
@@ -27,15 +30,11 @@ export class ListDeviceComponent implements OnInit {
       data: null
     });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //     this.roomService.save(result).subscribe(
-    //       (sresult: any) => {
-    //         this.getAll();
-    //       }
-    //     );
-    //   }
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.devices.push(result);
+      }
+    });
   }
 
   edit(device: Device) {
@@ -45,16 +44,12 @@ export class ListDeviceComponent implements OnInit {
       data: device
     });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   if (result) {
-    //     this.roomService.save(result).subscribe(
-    //       (sresult: any) => {
-    //         console.log(sresult);
-    //         this.getAll();
-    //       }
-    //     );
-    //   }
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        let editedDevice = this.devices.find(r => r._id = result._id);
+        editedDevice = result;
+      }
+    });
   }
 
 }
