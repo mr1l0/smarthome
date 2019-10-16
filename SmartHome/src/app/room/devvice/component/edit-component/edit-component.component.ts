@@ -26,21 +26,22 @@ export class EditComponentComponent extends DefaultEditForm implements OnInit {
   arduinos: Arduino[];
 
   ngOnInit() {
-    this.arduinoService.getAll().subscribe(
-      (result: any) => {
-        this.arduinos = result.hits.hits;
-      }
-    );
-
     if (this.data) {
       this.component = Object.create(this.data);
     } else {
       this.component = new DeviceComponent();
     }
+
+    this.arduinoService.getAll().subscribe(
+      (result: any) => {
+        this.arduinos = result.hits.hits;
+      }
+    );
+    this.myControl.setValue(this.component._source.arduino._source.name);
   }
 
   submit() {
-    this.component._source.arduino = this.myControl.value;
+    this.component._source.arduino = this.arduinos.find(filtro => filtro._source.name = this.myControl.value);
     this.dialogRef.close(this.component);
   }
 

@@ -44,6 +44,7 @@ export class DefaultElasticService {
 
   save(bean: DefaultModel) {
     this.beforeSave(bean);
+    console.log(bean);
     if (bean._id) {
       return this.update(bean);
     } else {

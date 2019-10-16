@@ -12,10 +12,10 @@ export class Room extends DefaultModel {
     _type?: string,
   };
 
-constructor() {
-  super();
-  this._source = {};
-  this._source.devices = [];
-}
+  constructor() {
+    super();
+    this._source = {};
+    this._source.devices = [];
+  }
 
 }
