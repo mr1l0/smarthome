@@ -1,0 +1,22 @@
+<h3>{{room._source.name}}</h3>
+
+
+<div *ngFor="let device of room._source.devices" class="cards">
+    <mat-card class="card align-right-container">
+      <div (click)="execute(device)">
+        <mat-card-title>
+          <mat-icon>meeting_room</mat-icon>
+          {{device._source.name}}
+          </mat-card-title>
+      </div>
+      <!--button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>    
+      <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="open(room)"><mat-icon>open_in_new</mat-icon> Abrir</button>
+          <mat-divider *ngIf="userService.isAdmin()"></mat-divider>
+          <button mat-menu-item *ngIf="userService.isAdmin()" (click)="edit(room)"><mat-icon>edit</mat-icon>Editar</button>
+          <button mat-menu-item *ngIf="userService.isAdmin()" (click)="remove(room)"><mat-icon>delete</mat-icon>Excluir</button>
+        </mat-menu-->    
+    </mat-card>
+  </div>

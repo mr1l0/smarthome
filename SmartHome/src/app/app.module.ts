@@ -34,6 +34,7 @@ import { ListDeviceComponent } from './room/device/list-device/list-device.compo
 import { EditDeviceComponent } from './room/device/edit-device/edit-device.component';
 import { ListComponentComponent } from './room/devvice/component/list-component/list-component.component';
 import { EditComponentComponent } from './room/devvice/component/edit-component/edit-component.component';
+import { MyRoomComponent } from './room/my-room/my-room.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { EditComponentComponent } from './room/devvice/component/edit-component/
     ListDeviceComponent,
     EditDeviceComponent,
     ListComponentComponent,
-    EditComponentComponent
+    EditComponentComponent,
+    MyRoomComponent
   ],
   imports: [
     BrowserModule,

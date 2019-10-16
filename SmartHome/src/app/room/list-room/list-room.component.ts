@@ -5,6 +5,7 @@ import { Room } from 'src/app/dataModel/room';
 import { EditRoomComponent } from '../edit-room/edit-room.component';
 import { DefaultController } from 'src/app/elastic/default-controller';
 import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-room',
@@ -13,7 +14,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ListRoomComponent extends DefaultController implements OnInit {
 
-  constructor(protected roomService: RoomService, public dialog: MatDialog, private userService: UserService) {
+  constructor(protected roomService: RoomService, public dialog: MatDialog, private userService: UserService, private route: Router) {
     super(roomService, dialog) ;
   }
 
@@ -22,7 +23,7 @@ export class ListRoomComponent extends DefaultController implements OnInit {
   }
 
   open(room: Room) {
-
+    this.route.navigate(['/myRoom/' + room._id]);
   }
 
   add(): void {

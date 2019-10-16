@@ -12,6 +12,10 @@ export class RoomService extends DefaultElasticService {
     super(http);
   }
 
+  getRoom(idRoom: string) { 
+    return this.http.get(this.getUrl() + '/' + idRoom, this.httpOptions)
+  }
+
   getUrl(): string {
     return super.getUrl() + 'home/rooms';
   }
