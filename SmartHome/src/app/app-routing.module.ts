@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'login', component: LoginFormComponent},
   {path: 'home', canActivate: [UserGuard], component: ListRoomComponent},
   {path: 'rooms', canActivate: [UserGuard], component: ListRoomComponent},
-  {path: 'myRoom/:room', canActivate: [UserGuard], component: MyRoomComponent},
+  {path: 'myRoom/:room canActivate: [UserGuard], component: MyRoomComponent},
   {path: 'config', canActivate: [AdminGuard], component: EditConfigComponent},
   {path: '**', component: PageNotFoundComponent},
 ];
