@@ -4,6 +4,15 @@
     <input matInput autofocus [(ngModel)]="device._source.name" name="name" placeholder="Nome do Dispositivo">
   </mat-form-field>
 
+  <mat-form-field>
+      <mat-label>Tipo</mat-label>
+      <mat-select>
+        <mat-option [value]="Luz">
+          Luz
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
   <app-list-component [components]="device._source.components"></app-list-component>
 
   <button mat-flat-button color="primary" (click)="submit()">Confirmar</button>

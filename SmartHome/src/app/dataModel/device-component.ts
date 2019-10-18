@@ -6,8 +6,8 @@ export class DeviceComponent extends DefaultModel {
     name?: string,
     arduino?: Arduino,
     port?: BigInteger,
-    out?: string,
-    in?: string
+    get?: any,
+    set?: any
   }
 
   constructor() {

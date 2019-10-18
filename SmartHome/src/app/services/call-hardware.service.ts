@@ -19,15 +19,17 @@ export class CallHardwareService {
 
   estado: boolean;
 
+  read(deviceComponent: DeviceComponent) {
+    const URL = deviceComponent._source.arduino._source.ip + 
+      '/?' + deviceComponent._source.port + '-'
+      '&READ';
+    return this.http.post(URL, deviceComponent._source, httpOptions);
+  }
+
   call(deviceComponent: DeviceComponent) {
-    let mudarPara: string;
-    if (this.estado) {
-      mudarPara = 'HIGH';
-      this.estado = !this.estado;
-    } else {
-      mudarPara = 'LOW';
-      this.estado = !this.estado;
-    }
-    return this.http.post(deviceComponent._source.arduino._source.ip + '/?' + deviceComponent._source.port + '&' + mudarPara, deviceComponent._source, httpOptions);
+    const URL = deviceComponent._source.arduino._source.ip + 
+      '/?' + deviceComponent._source.port + '-' + '&' + deviceComponent._source.set;   
+    console.log(URL);
+    return this.http.post(URL, deviceComponent._source, httpOptions);
   }
 }

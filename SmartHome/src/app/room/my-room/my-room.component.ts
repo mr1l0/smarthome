@@ -5,6 +5,9 @@ import { RoomService } from 'src/app/services/room.service';
 import { Device } from 'src/app/dataModel/device';
 import { CallHardwareService } from 'src/app/services/call-hardware.service';
 
+const HIGH = 'HIGH';
+const LOW = 'LOW';
+
 @Component({
   selector: 'app-my-room',
   templateUrl: './my-room.component.html',
@@ -33,6 +36,7 @@ export class MyRoomComponent implements OnInit {
   }
 
   execute(device: Device) {
+    device._source.components[0]._source.set = HIGH;
     this.callHardwareService.call(device._source.components[0]).subscribe(result => {
       console.log('deu certo');
       console.log(result);

@@ -35,6 +35,8 @@ import { EditDeviceComponent } from './room/device/edit-device/edit-device.compo
 import { ListComponentComponent } from './room/devvice/component/list-component/list-component.component';
 import { EditComponentComponent } from './room/devvice/component/edit-component/edit-component.component';
 import { MyRoomComponent } from './room/my-room/my-room.component';
+import { DeviceFactoryComponent } from './viewFactory/device-factory/device-factory.component';
+import { LightComponent } from './viewFactory/devices/light/light.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { MyRoomComponent } from './room/my-room/my-room.component';
     EditDeviceComponent,
     ListComponentComponent,
     EditComponentComponent,
-    MyRoomComponent
+    MyRoomComponent,
+    DeviceFactoryComponent,
+    LightComponent
   ],
   imports: [
     BrowserModule,
