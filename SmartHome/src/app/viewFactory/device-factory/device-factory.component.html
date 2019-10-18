@@ -1,1 +1,1 @@
-<app-light *ngIf="this.device._source.type === 'Luz'" device="device"></app-light>
+<app-light [device]="device" *ngIf="device._source.type === 'Luz'"></app-light>

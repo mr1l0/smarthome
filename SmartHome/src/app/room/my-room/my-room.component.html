@@ -2,7 +2,7 @@
 
 
 <div *ngFor="let device of room._source.devices" class="cards">
-  <app-device-factory device="device"></app-device-factory>
+  <app-device-factory [device]="device"></app-device-factory>
     <!--mat-card class="card align-right-container">
       <div (click)="execute(device)">
         <mat-card-title>

@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogRef, MatDialogModule, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 import { MatInputModule, MatFormFieldModule, MatMenuModule, MatIconModule,
-    MatToolbarModule, MatSidenavModule, MatListModule, MatAutocompleteModule } from '@angular/material';
+    MatToolbarModule, MatSidenavModule, MatListModule, MatAutocompleteModule, MatSelectModule } from '@angular/material';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
@@ -80,6 +80,7 @@ import { LightComponent } from './viewFactory/devices/light/light.component';
     HttpClientModule,
     Ng2SearchPipeModule,
     MatAutocompleteModule,
+    MatSelectModule,
     ReactiveFormsModule
   ],
   entryComponents: [

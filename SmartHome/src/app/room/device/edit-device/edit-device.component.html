@@ -5,14 +5,15 @@
   </mat-form-field>
 
   <mat-form-field>
-      <mat-label>Tipo</mat-label>
-      <mat-select>
-        <mat-option [value]="Luz">
-          Luz
-        </mat-option>
+      <mat-label>Tipo de Dispositivo</mat-label>
+      <mat-select [(value)]="device._source.type">
+        <mat-option>None</mat-option>
+        <mat-option value="Luz">Luz</mat-option>
       </mat-select>
     </mat-form-field>
-
+    
+    <p>You selected: {{selected}}</p>
+    
   <app-list-component [components]="device._source.components"></app-list-component>
 
   <button mat-flat-button color="primary" (click)="submit()">Confirmar</button>

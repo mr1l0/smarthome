@@ -6,11 +6,11 @@ import { Device } from 'src/app/dataModel/device';
   templateUrl: './device-factory.component.html',
   styleUrls: ['./device-factory.component.scss']
 })
-export class DeviceFactoryComponent implements OnInit {
+export class DeviceFactoryComponent<T> implements OnInit {
 
   constructor() { }
-
-  @Input() device: Device;
+  
+  @Input() device: {new(device: Device): T;};
 
   ngOnInit() {
   }
