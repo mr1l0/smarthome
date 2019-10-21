@@ -9,8 +9,8 @@ import { Device } from 'src/app/dataModel/device';
 export class DeviceFactoryComponent<T> implements OnInit {
 
   constructor() { }
-  
-  @Input() device: {new(device: Device): T;};
+
+  @Input() device: {new(device: Device): T; };
 
   ngOnInit() {
   }

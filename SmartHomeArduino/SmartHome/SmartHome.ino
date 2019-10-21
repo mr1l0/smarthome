@@ -28,14 +28,6 @@ void setup()
   server.begin();
 }
 
-// funcao para limpar arrays (no nosso caso, as variaveis que armazenam requests)
-void StrClear(char *str, char length)
-{
-  for (int i = 0; i < length; i++) {
-    str[i] = 0;
-  }
-}
-
 void execute(EthernetClient client) {            
   if (readString.indexOf("?1-") > 0) {    
     executeIt(client, 1, readString.indexOf("&HIGH") > 0, readString.indexOf("&READ") > 0);
