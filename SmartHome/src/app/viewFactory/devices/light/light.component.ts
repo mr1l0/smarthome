@@ -16,10 +16,10 @@ export class LightComponent<T> implements OnInit {
 
   @Input() device: {new(device: Device): T;};  
 
-  ngOnInit() {    
-    let rele: DeviceComponent = this.device._source.components.find(result => result._source.name == 'relé');        
-    this.callHardwareService.read(rele).subscribe((result: any) => {
-      rele._source.get = result.value;
-    });    
+  ngOnInit() {
+    //let rele: DeviceComponent = this.device._source.components.find(result => result._source.name == 'relé');        
+    // this.callHardwareService.read(rele).subscribe((result: any) => {
+    //   rele._source.get = result.value;
+    // });    
   }
 }
