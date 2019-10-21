@@ -14,12 +14,18 @@ export class LightComponent<T> implements OnInit {
     protected callHardwareService: CallHardwareService
   ) { }
 
-  @Input() device: {new(device: Device): T;};  
+  //@Input() device: {new(device: Device): T; };
+
+  @Input() set device(device: Device) {
+    if (!device) {
+      return;
+    }
+    const rele: DeviceComponent = device._source.components.find(result => result._source.name === 'relé');
+    this.callHardwareService.read(rele).subscribe((result: any) => {
+      rele._source.get = result.value;
+    });
+  }
 
   ngOnInit() {
-    //let rele: DeviceComponent = this.device._source.components.find(result => result._source.name == 'relé');        
-    // this.callHardwareService.read(rele).subscribe((result: any) => {
-    //   rele._source.get = result.value;
-    // });    
   }
 }
