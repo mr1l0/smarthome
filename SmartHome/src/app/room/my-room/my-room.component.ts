@@ -16,10 +16,10 @@ const LOW = 'LOW';
 export class MyRoomComponent implements OnInit {
 
   constructor(
-    protected roomService: RoomService, 
-    protected myRoute: ActivatedRoute, 
+    protected roomService: RoomService,
+    protected myRoute: ActivatedRoute,
     protected callHardwareService: CallHardwareService
-  ) { 
+  ) {
 
   }
 
@@ -28,7 +28,8 @@ export class MyRoomComponent implements OnInit {
   ngOnInit() {
     this.myRoute.params.subscribe(params => {
       if (params['room']) {
-        this.roomService.getRoom(params['room']).subscribe((result: any) =>{
+        this.roomService.getRoom(params['room']).subscribe((result: any) => {
+          console.log(result);
           this.room = result;
         });
       }

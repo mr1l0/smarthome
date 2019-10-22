@@ -10,7 +10,14 @@ export class DeviceFactoryComponent<T> implements OnInit {
 
   constructor() { }
 
-  @Input() device: {new(device: Device): T; };
+  //@Input() device: {new(device: Device): T; };
+  @Input() device: Device;
+  // {
+  //   // if (!device) {
+  //   //   return;
+  //   // }
+  // }
+
 
   ngOnInit() {
   }

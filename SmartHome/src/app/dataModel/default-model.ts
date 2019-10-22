@@ -1,4 +1,5 @@
 export class DefaultModel {
+  // tslint:disable: variable-name
   _id: string;
   _index: string;
   _score: number;

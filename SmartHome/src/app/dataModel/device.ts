@@ -6,7 +6,7 @@ export class Device extends DefaultModel {
   _source: {
     name?: string,
     components?: DeviceComponent[],
-    type?: string;
+    type?: string
   };
 
   constructor() {
